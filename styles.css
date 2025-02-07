@@ -1,9 +1,12 @@
+
 header{
     box-sizing: border-box;
     border: 1px solid;
     height: 60px;
     display: flex;
     align-items: center;
+    border-radius: 40px 40px 0px 0px;
+    padding: 35px;
 }
 main{
     box-sizing: border-box;
