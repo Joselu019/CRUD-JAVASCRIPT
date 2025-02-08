@@ -47,3 +47,51 @@ aside{
     justify-content: center;
     align-items: center;
 }
+.contenedor{
+    display: flex;
+    gap: 8px;
+}
+.buscador{
+    /* border: 1px solid green; */
+    position: relative;
+}
+
+.cajaBuscar{
+    outline: none;
+    box-sizing: border-box;
+    margin-left: 10px;
+    height: 20px;
+    width: 0;
+    padding: 0 10px;
+    color: #000;
+    border-radius: 50px;
+    /* font-size: 20px; */
+    border: 1px solid lightblue;
+    transition: all 0.7s ease;
+}
+
+.iconoBuscar{
+    position: absolute;
+    top: -5px;
+    right: 0;
+    width: 30px;
+    height: 30px;
+    background: lightblue;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.iconoBuscar svg{
+    height: 18px;
+    color: white;
+    transition: all 0.7 ease;
+}
+
+.buscador:hover .cajaBuscar{
+    width: 200px;
+}
+
