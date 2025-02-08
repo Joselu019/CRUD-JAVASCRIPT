@@ -29,3 +29,21 @@ aside{
     width: 40%;
     min-height: 85vh;
 }
+
+.icono{
+    background: crimson;
+}
+
+.icono svg{
+    color: white;
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.busqueda{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

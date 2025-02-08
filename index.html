@@ -10,7 +10,8 @@
     <header>
         <div>
             <input id="cajaNombre" type="text" placeholder="Introduzca su nombre" class="cajaTexto">
-            <input type="button" value="Guardar" class="boton" onclick="guardar()"> 
+            <input type="button" value="Guardar" class="boton" onclick="guardar()">
+            <input type="button" value="Buscar" class="boton">
         </div>
     </header>
     <main>
@@ -18,6 +19,16 @@
             <table id="tabla"></table>
         </section>
         <aside>
+            <div class="busqueda">
+                <div class="divReemplazar">
+                    <input type="text" placeholder="Nuevo nombre">
+                    <input type="button" value="Reemplazar">
+                    <input type="button" value="Saltar">
+                </div>
+                <div class="divResultado">
+
+                </div>
+            </div>
         </aside>
     </main>
     <script src="script.js"></script>
