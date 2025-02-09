@@ -47,3 +47,10 @@ aside{
     justify-content: center;
     align-items: center;
 }
+
+.divReemplazar{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

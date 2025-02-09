@@ -11,7 +11,7 @@
         <div>
             <input id="cajaNombre" type="text" placeholder="Introduzca su nombre" class="cajaTexto">
             <input type="button" value="Guardar" class="boton" onclick="guardar()">
-            <input type="button" value="Buscar" class="boton">
+            <input type="button" value="Buscar" class="boton" onclick="buscar()">
         </div>
     </header>
     <main>
@@ -19,7 +19,7 @@
             <table id="tabla"></table>
         </section>
         <aside>
-            <div class="busqueda">
+            <div id= "busqueda" class="busqueda"></div> <!-- he tenido que poner aparte este div porque si no se me borraba el nuevo nombre, remplazar y saltar -->
                 <div class="divReemplazar">
                     <input type="text" placeholder="Nuevo nombre">
                     <input type="button" value="Reemplazar">
@@ -28,7 +28,7 @@
                 <div class="divResultado">
 
                 </div>
-            </div>
+            
         </aside>
     </main>
     <script src="script.js"></script>
