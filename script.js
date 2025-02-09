@@ -21,7 +21,6 @@ function actualizarTabla(){
                         </td>
                     </tr>`
         texto+=fila
-        console.log(vector[0])
     }
     document.getElementById("tabla").innerHTML=texto
 }
@@ -33,15 +32,15 @@ function eliminarAlumno(posicion){
 
 function modificar(nombre,posicion){
     let nuevoNombre=nombre.value
-    vector.splice(posicion,1, nuevoNombre)
+    vector.splice(posicion,1, nuevoNombre) //modifico 1 elemento segun su posicion y lo reemplazo por el nuevo nombre
     actualizarTabla()
 }
 
 function invertir(){
     //falta una cosa, cuando esté el boton la añado
     for (let i = 0; i < vector.length; i++) {
-        let nombreInvertido=vector[i].split("").reverse().join("");
-        vector.splice(i,1, nombreInvertido);
+        let nombreInvertido=vector[i].split("").reverse().join("");  //separo el elemento del vector por caracteres, les doy la vuelta, los vuelto a unir y los guardo en una variable
+        vector.splice(i,1, nombreInvertido);                         //modifico esa posicion del vector y la sustituyo por la nueva
     }
     actualizarTabla();
 }
