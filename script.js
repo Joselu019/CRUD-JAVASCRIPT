@@ -50,7 +50,7 @@ function modificar(nombre,posicion){
 }
 function buscar(){
     var nombre=document.getElementById("cajaNombre").value;
-    var busqueda=document.getElementById('busqueda');
+    var resultado=document.getElementById('divResultado');
     var contador=0;
     for(i=0;i<vector.length;i++){
         document.getElementById('alumno'+i).style.background="white"
@@ -59,9 +59,9 @@ function buscar(){
             contador++;
             document.getElementById('alumno'+i).style.background="rgb(61, 37, 83)"
             document.getElementById('alumno'+i).style.color="white"
-            busqueda.style.display="inline";
-            busqueda.innerHTML=` ${nombre} aparece ${contador} veces`;            
-            busqueda.innerHTML=` ${nombre} aparece ${contador} veces`;    
+            resultado.style.display="inline";
+            resultado.innerHTML=` ${nombre} aparece ${contador} veces`;            
+            resultado.innerHTML=` ${nombre} aparece ${contador} veces`;    
         }
     }   
 }
