@@ -75,8 +75,8 @@ function invertir(){
 }
     // Función que reemplaza los nombres de la tabla por el que el usuario indique
 function reemplazar(){
-    var nombre=document.getElementById("nuevoNombre").value
-    var reemplazar=document.getElementById("cajaReemplazar").value
+    var nombre=document.getElementById("cajaNombre").value
+    var reemplazar=document.getElementById("nuevoNombre").value
 
     for(i=0;i<vector.length;i++){
         if(vector[i] == nombre){
@@ -84,4 +84,14 @@ function reemplazar(){
         }
     }
     actualizarTabla()
+}
+function calcularPromedio(){
+    // var cajaPromedio=document.getElementById("promedio")
+    var vectorCaracteres=[]
+    for(i=0;i<vector.length;i++){
+        var separarCaracteres=vector[i].split("")
+        vectorCaracteres=separarCaracteres.concat(vectorCaracteres)
+    }
+    var promedio=vectorCaracteres.length / vector.length
+    // cajaPromedio.value=promedio
 }
