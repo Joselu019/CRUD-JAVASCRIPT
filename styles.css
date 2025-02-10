@@ -2,6 +2,7 @@ body{
     background-color: rgb(169, 177, 247);
     
 }
+
 header{
     box-sizing: border-box;
     border: 1px solid;
@@ -11,6 +12,7 @@ header{
     border-radius: 40px 40px 0px 0px;
     padding: 35px;
 }
+
 main{
     box-sizing: border-box;
     border: 1px solid red;
@@ -18,6 +20,7 @@ main{
     min-height: 85vh;
     display: flex;
 }
+
 section{
     box-sizing: border-box;
     border: 1px solid green;
@@ -25,6 +28,7 @@ section{
     width: 60%;
     min-height: 85vh;
 }
+
 aside{
     box-sizing: border-box;
     border: 1px solid blueviolet;
@@ -34,7 +38,7 @@ aside{
 }
 
 .icono{
-    background: crimson;
+    background: lightblue;
 }
 
 .icono svg{
@@ -50,10 +54,12 @@ aside{
     justify-content: center;
     align-items: center;
 }
+
 .contenedor{
     display: flex;
     gap: 8px;
 }
+
 .buscador{
     /* border: 1px solid green; */
     position: relative;
