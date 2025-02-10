@@ -57,7 +57,7 @@ function buscar(){
         document.getElementById('alumno'+i).style.color="black"
         if(nombre==vector[i]){
             contador++;
-            document.getElementById('alumno'+i).style.background="rgb(61, 37, 83)"
+            document.getElementById('alumno'+i).style.background="rgb(19, 36, 73)"
             document.getElementById('alumno'+i).style.color="white"
             resultado.style.display="inline";
             resultado.innerHTML=` ${nombre} aparece ${contador} veces`;            
