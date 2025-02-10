@@ -75,7 +75,7 @@ function invertir(){
 }
     // Función que reemplaza los nombres de la tabla por el que el usuario indique
 function reemplazar(){
-    var nombre=document.getElementById("cajaNombre").value
+    var nombre=document.getElementById("cajaBuscar").value
     var reemplazar=document.getElementById("nuevoNombre").value
 
     for(i=0;i<vector.length;i++){
