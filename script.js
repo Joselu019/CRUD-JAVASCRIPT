@@ -10,10 +10,8 @@ function guardar(){
         }
     vector.push(nombre)
     document.getElementById("cajaNombre").value=""
-    actualizarTabla()
-    
+    actualizarTabla()  
 }
-
 function actualizarTabla(){
     texto=""
     if(vector.length==0){
@@ -40,21 +38,16 @@ function actualizarTabla(){
     </tr>`
     
     document.getElementById("tabla").innerHTML=texto+filaTotal;
-
-
 }
-
 function eliminarAlumno(posicion){
     vector.splice(posicion,1);
     actualizarTabla();
 }
-
 function modificar(nombre,posicion){
     let nuevoNombre=nombre.value
     vector.splice(posicion,1, nuevoNombre) //modifico 1 elemento segun su posicion y lo reemplazo por el nuevo nombre
     actualizarTabla()
 }
-
 function buscar(){
     var nombre=document.getElementById("cajaNombre").value;
     var busqueda=document.getElementById('busqueda');
@@ -79,6 +72,7 @@ function invertir(){
     }
     actualizarTabla();
 }
+    // Función que reemplaza los nombres de la tabla por el que el usuario indique
 function reemplazar(){
     var nombre=document.getElementById("cajaNombre").value
     var reemplazar=document.getElementById("cajaReemplazar").value
