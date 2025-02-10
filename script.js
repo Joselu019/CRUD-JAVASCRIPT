@@ -61,7 +61,7 @@ function buscar(){
             document.getElementById('alumno'+i).style.color="white"
             resultado.style.display="inline";
             resultado.innerHTML=` ${nombre} aparece ${contador} veces`;            
-            resultado.innerHTML=` ${nombre} aparece ${contador} veces`;    
+            
         }
     }   
 }
