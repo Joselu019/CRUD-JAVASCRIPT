@@ -10,9 +10,7 @@
     <header>
         <div class="contenedor">
             <input id="cajaNombre" type="text" placeholder="Introduzca su nombre" class="cajaTexto">
-            <input id="cajaReemplazar" type="text" placeholder="Reemplazar por" class="cajaTexto">
             <input type="button" value="Guardar" class="boton" onclick="guardar()">
-            <button onclick="reemplazar()" class="boton">Reemplazar todos</button>
             <input type="button" value="Buscar" class="boton" onclick="buscar()">
 
 
@@ -37,8 +35,8 @@
         <aside>
             <div  id="busqueda" class="busqueda">      <!-- por defecto tiene un display:none -->
                 <div class="divReemplazar">
-                    <input type="text" placeholder="Nuevo nombre" class="boton">
-                    <input type="button" value="Reemplazar" class="boton">
+                    <input type="text" placeholder="Nuevo nombre" class="boton" id="nuevoNombre">
+                    <input type="button" value="Reemplazar" class="boton" onclick="reemplazar()">
                     <input type="button" value="Saltar" class="boton">
                 </div>
                 <div class="divResultado">
