@@ -13,7 +13,7 @@ function guardar(){
     actualizarTabla()  
 }
 
-function actualizarTabla(){
+function actualizarTabla(informacion){
     texto=""
     if(vector.length==0){
         totalAlumnos=0;
@@ -25,7 +25,7 @@ function actualizarTabla(){
                         <td> ${(i + 1)}</td>
                         <td> <input type="text" id="alumno${i}" value="${vector[i]}" onchange="modificar(this,${i})"> </td> 
                         <td class="icono">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" onclick="(function() { calcularInfo(${i}); mostrarInfo(); })()">
                                 <path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11 11V17H13V11H11ZM11 7V9H13V7H11Z"></path>
                             </svg>
                         <td class="icono">
@@ -37,6 +37,7 @@ function actualizarTabla(){
                 `
         texto+=fila
     }
+    texto+=informacion
     filaTotal=`
     <tr>
         <td>Total alumnos:${totalAlumnos}</td>
@@ -71,7 +72,7 @@ function buscar(){
             resultado.innerHTML=` ${nombre} aparece ${contador} veces`;            
         }
     }   
-    
+    document.getElementById("cajaBuscar").value=""
 }
 
 function invertir(){
@@ -83,11 +84,11 @@ function invertir(){
     actualizarTabla();
 }
 
-    // Función que reemplaza los nombres de la tabla por el que el usuario indique
-function reemplazarTodos(){
+// Función que reemplaza los nombres de la tabla por el que el usuario indique
+function reemplazar(){
     var nombre=document.getElementById("cajaBuscar").value
     var reemplazar=document.getElementById("nuevoNombre").value
-
+    
     for(i=0;i<vector.length;i++){
         if(vector[i] == nombre){
             vector[i]=reemplazar
@@ -95,42 +96,78 @@ function reemplazarTodos(){
     }
     actualizarTabla()
 }
-function calcularPromedio(){
-    // var cajaPromedio=document.getElementById("promedio")
+function info(){
     var vectorCaracteres=[]
     for(i=0;i<vector.length;i++){
         var separarCaracteres=vector[i].split("")
         vectorCaracteres=separarCaracteres.concat(vectorCaracteres)
     }
-    var promedio=vectorCaracteres.length / vector.length
-// Creo un vector para almacenar los caracteres. Separo los caracteres de cada elemento del  vector y meto en el nuevo vector
-// que almacena los caracteres. Por último, divido el nº de caracteres entre los elementos del vector principal
-
-    // cajaPromedio.value=promedio
-}
-function nombreLargo(){
-    var contador=0
+    var contadorLargo=0
     for(var i=0;i<vector.length;i++){
-        var dividir=vector[i].split("")
-        var longitud=dividir.length
-            if(longitud>contador){
-                contador=longitud
-                var nombreLargo=contador
+        var dividirLargo=vector[i].split("")
+        var longitudLargo=dividirLargo.length
+            if(longitudLargo>contadorLargo){
+                contadorLargo=longitudLargo
+                var nombreLargo=contadorLargo
         }
     }
-    // document.getElementById("resultado").innerHTML=nombreLargo
-
-// Divido cada nombre del vector en caracteres y los cuento. Si el número de caracteres es mayor que el que ya había, lo sustituye
-}
-function nombreCorto(){
-    var contador=100
+    var contadorCorto=100
     for(var i=0;i<vector.length;i++){
-        var dividir=vector[i].split("")
-        var longitud=dividir.length
-            if(longitud<contador){
-                contador=longitud
-                var nombreCorto=contador
+        var dividirCorto=vector[i].split("")
+        var longitudCorto=dividirCorto.length
+            if(longitudCorto<contadorCorto){
+                contadorCorto=longitudCorto
+                var nombreCorto=contadorCorto
         }
     }
-    // document.getElementById("resultado2").innerHTML=nombreCorto
+    var promedio=(vectorCaracteres.length / vector.length).toFixed(2)
+
+    var informacion = `
+        <tr>
+            <td colspan="2"><strong>Promedio:</strong> ${promedio}</td>
+        </tr>
+        <tr>
+            <td colspan="2"><strong>Nombre más largo:</strong> ${nombreLargo}</td>
+        </tr>
+        <tr>
+            <td colspan="2"><strong>Nombre más corto:</strong> ${nombreCorto}</td>
+        </tr>
+    `
+
+    actualizarTabla(informacion)
+}
+function calcularInfo(i){
+    var numeroVocales=0
+    var separarCaracteres=vector[i].split("")
+    var longitudNombre=separarCaracteres.length
+    for(var j=0;j<separarCaracteres.length;j++){
+        if (separarCaracteres[j] == 'a' || separarCaracteres[j] == 'e' || separarCaracteres[j] == 'i' || separarCaracteres[j] == 'o' || separarCaracteres[j] == 'u') {
+            numeroVocales+=1
+        }
+    }
+
+    mostrarInfo(numeroVocales,longitudNombre,i,promedio,nombreLargo,nombreCorto)
+}
+function mostrarInfo(numeroVocales,longitudNombre,i,promedio,nombreLargo,nombreCorto){
+    var info=`
+        El nombre es ${i} <br>
+        Su longitud es ${longitudNombre} caracteres <br>     
+        Su número de vocales es ${numeroVocales} <br>
+    `
+        if (longitudNombre<promedio){
+            info += "El nombre está por debajo del promedio <br>"
+        }else if(longitudNombre==promedio){
+            info += "El nombre es igual al promedio <br>"
+        }else{
+            info += "El nombre está por debajo del promedio <br>"
+        }
+        
+        if (longitudNombre<=nombreCorto){
+            info += "Es el nombre más corto"
+        }else if(longitudNombre>=nombreLargo){
+            info += "Es el nombre más largo"
+        }else{
+            info += "No es ni el nombre más largo ni el más corto"
+        }
+    document.getElementById("infoNombre").innerHTML=info
 }
