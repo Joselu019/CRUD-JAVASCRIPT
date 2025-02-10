@@ -1,4 +1,4 @@
-var texto=""
+var texto="" // Variable para actualizar la tabla
 var vector=[] 
 var alumnos=[];
 var totalAlumnos=0;
@@ -67,13 +67,10 @@ function buscar(){
             document.getElementById('alumno'+i).style.background="rgb(61, 37, 83)"
             document.getElementById('alumno'+i).style.color="white"
             busqueda.style.display="inline";
-            busqueda.innerHTML=` ${nombre} aparece ${contador} veces`;
-            
+            busqueda.innerHTML=` ${nombre} aparece ${contador} veces`;            
         }
-    }
-    
+    }   
 }
-
 function invertir(){
     //falta una cosa, cuando esté el boton la añado
     for (let i = 0; i < vector.length; i++) {
@@ -81,4 +78,15 @@ function invertir(){
         vector.splice(i,1, nombreInvertido);                         //modifico esa posicion del vector y la sustituyo por la nueva
     }
     actualizarTabla();
+}
+function reemplazar(){
+    var nombre=document.getElementById("cajaNombre").value
+    var reemplazar=document.getElementById("cajaReemplazar").value
+
+    for(i=0;i<vector.length;i++){
+        if(vector[i] == nombre){
+            vector[i]=reemplazar
+        }
+    }
+    actualizarTabla()
 }
