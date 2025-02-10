@@ -1,4 +1,6 @@
-
+body{
+    background-color: rgb(167, 128, 231);
+}
 header{
     box-sizing: border-box;
     border: 1px solid;
@@ -53,4 +55,10 @@ aside{
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.boton{
+    background-color: rgb(19, 17, 20);
+    color: white;
+    border-radius: 5px;
 }
