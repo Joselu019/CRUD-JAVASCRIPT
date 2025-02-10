@@ -49,7 +49,7 @@ function modificar(nombre,posicion){
     actualizarTabla()
 }
 function buscar(){
-    var nombre=document.getElementById("cajaNombre").value;
+    var nombre=document.getElementById("cajaBuscar").value;
     var resultado=document.getElementById('divResultado');
     var contador=0;
     for(i=0;i<vector.length;i++){
