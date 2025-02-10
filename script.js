@@ -103,5 +103,34 @@ function calcularPromedio(){
         vectorCaracteres=separarCaracteres.concat(vectorCaracteres)
     }
     var promedio=vectorCaracteres.length / vector.length
+// Creo un vector para almacenar los caracteres. Separo los caracteres de cada elemento del  vector y meto en el nuevo vector
+// que almacena los caracteres. Por último, divido el nº de caracteres entre los elementos del vector principal
+
     // cajaPromedio.value=promedio
+}
+function nombreLargo(){
+    var contador=0
+    for(var i=0;i<vector.length;i++){
+        var dividir=vector[i].split("")
+        var longitud=dividir.length
+            if(longitud>contador){
+                contador=longitud
+                var nombreLargo=contador
+        }
+    }
+    // document.getElementById("resultado").innerHTML=nombreLargo
+
+// Divido cada nombre del vector en caracteres y los cuento. Si el número de caracteres es mayor que el que ya había, lo sustituye
+}
+function nombreCorto(){
+    var contador=100
+    for(var i=0;i<vector.length;i++){
+        var dividir=vector[i].split("")
+        var longitud=dividir.length
+            if(longitud<contador){
+                contador=longitud
+                var nombreCorto=contador
+        }
+    }
+    // document.getElementById("resultado2").innerHTML=nombreCorto
 }
