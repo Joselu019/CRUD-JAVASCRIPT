@@ -61,9 +61,9 @@ function buscar(){
             document.getElementById('alumno'+i).style.color="white"
             resultado.style.display="inline";
             resultado.innerHTML=` ${nombre} aparece ${contador} veces`;            
-            
         }
     }   
+    
 }
 function invertir(){
     //falta una cosa, cuando esté el boton la añado
