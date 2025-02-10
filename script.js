@@ -71,7 +71,7 @@ function buscar(){
             resultado.innerHTML=` ${nombre} aparece ${contador} veces`;            
         }
     }   
-    
+    document.getElementById("cajaBuscar").value=""
 }
 
 function invertir(){
