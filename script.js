@@ -67,8 +67,7 @@ function buscar(){
             document.getElementById('alumno'+i).style.background="rgb(61, 37, 83)"
             document.getElementById('alumno'+i).style.color="white"
             busqueda.style.display="inline";
-            busqueda.innerHTML=` ${nombre} aparece ${contador} veces`;
-            
+            busqueda.innerHTML=` ${nombre} aparece ${contador} veces`;    
         }
     }
     
