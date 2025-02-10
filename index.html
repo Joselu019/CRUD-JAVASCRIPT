@@ -10,7 +10,9 @@
     <header>
         <div class="contenedor">
             <input id="cajaNombre" type="text" placeholder="Introduzca su nombre" class="cajaTexto">
+            <input id="cajaReemplazar" type="text" placeholder="Reemplazar por" class="cajaTexto">
             <input type="button" value="Guardar" class="boton" onclick="guardar()">
+            <button onclick="reemplazar()" class="boton">Reemplazar todos</button>
             <input type="button" value="Buscar" class="boton" onclick="buscar()">
 
 
@@ -46,8 +48,5 @@
         </aside>
     </main>
     <script src="script.js"></script>
-<input type="text" placeholder="Introduzca su nombre" id="cajaTexto" class="cajaTexto">
-<input type="button"  value="Guardar" class="boton">
-<table id="tabla"></table>
 </body>
 </html>

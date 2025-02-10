@@ -1,4 +1,4 @@
-var texto=""
+var texto="" // Variable para actualizar la tabla
 var vector=[] 
 var alumnos=[];
 var totalAlumnos=0;
@@ -10,10 +10,8 @@ function guardar(){
         }
     vector.push(nombre)
     document.getElementById("cajaNombre").value=""
-    actualizarTabla()
-    
+    actualizarTabla()  
 }
-
 function actualizarTabla(){
     texto=""
     if(vector.length==0){
@@ -40,21 +38,16 @@ function actualizarTabla(){
     </tr>`
     
     document.getElementById("tabla").innerHTML=texto+filaTotal;
-
-
 }
-
 function eliminarAlumno(posicion){
     vector.splice(posicion,1);
     actualizarTabla();
 }
-
 function modificar(nombre,posicion){
     let nuevoNombre=nombre.value
     vector.splice(posicion,1, nuevoNombre) //modifico 1 elemento segun su posicion y lo reemplazo por el nuevo nombre
     actualizarTabla()
 }
-
 function buscar(){
     var nombre=document.getElementById("cajaNombre").value;
     var busqueda=document.getElementById('busqueda');
@@ -67,12 +60,11 @@ function buscar(){
             document.getElementById('alumno'+i).style.background="rgb(61, 37, 83)"
             document.getElementById('alumno'+i).style.color="white"
             busqueda.style.display="inline";
+            busqueda.innerHTML=` ${nombre} aparece ${contador} veces`;            
             busqueda.innerHTML=` ${nombre} aparece ${contador} veces`;    
         }
-    }
-    
+    }   
 }
-
 function invertir(){
     //falta una cosa, cuando esté el boton la añado
     for (let i = 0; i < vector.length; i++) {
@@ -80,4 +72,16 @@ function invertir(){
         vector.splice(i,1, nombreInvertido);                         //modifico esa posicion del vector y la sustituyo por la nueva
     }
     actualizarTabla();
+}
+    // Función que reemplaza los nombres de la tabla por el que el usuario indique
+function reemplazar(){
+    var nombre=document.getElementById("cajaNombre").value
+    var reemplazar=document.getElementById("cajaReemplazar").value
+
+    for(i=0;i<vector.length;i++){
+        if(vector[i] == nombre){
+            vector[i]=reemplazar
+        }
+    }
+    actualizarTabla()
 }
