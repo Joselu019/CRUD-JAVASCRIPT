@@ -96,3 +96,9 @@ aside{
     width: 200px;
 }
 
+.boton{
+    background-color: rgb(38, 32, 44);
+    color:white;
+    border-radius: 5px;
+    border:solid 1px black;
+}
