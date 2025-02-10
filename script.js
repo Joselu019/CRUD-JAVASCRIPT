@@ -7,8 +7,8 @@ var botonInvertir=document.getElementById("botonInvertir");
 function guardar(){
     var nombre=document.getElementById("cajaNombre").value
     if(nombre==""){       
-        document.getElementById('busqueda').innerHTML="Por favor introduzca un nombre";//lo he añadido al div busqueda por si no introducen un nombre que les salga ese mensaje.
-        }
+        document.getElementById('divResultado').innerHTML="Por favor introduzca un nombre";//lo he añadido al div busqueda por si no introducen un nombre que les salga ese mensaje.    
+    }
     vector.push(nombre)
     document.getElementById("cajaNombre").value=""
     actualizarTabla()  
@@ -62,18 +62,24 @@ function buscar(){
     var nombre=document.getElementById("cajaBuscar").value;
     var resultado=document.getElementById('divResultado');
     var contador=0;
+    var numVeces=[];
+    resultado.innerHTML=" ";
     for(i=0;i<vector.length;i++){
         document.getElementById('alumno'+i).style.background="white"
         document.getElementById('alumno'+i).style.color="black"
         if(nombre==vector[i]){
+            numVeces.push(`<tr><td>${i+1}</td><td id="salto${i}">${vector[i]}</tr></td>`)
             contador++;
             document.getElementById('alumno'+i).style.background="rgb(19, 36, 73)"
             document.getElementById('alumno'+i).style.color="white"
-            resultado.style.display="inline";
-            resultado.innerHTML=` ${nombre} aparece ${contador} veces`;            
+            resultado.innerHTML=` ${nombre} aparece ${contador} veces <table>${numVeces.join('')}</table>`;
         }
     }   
     document.getElementById("cajaBuscar").value=""
+}
+
+function saltar(){
+    alert('Hola')
 }
 
 function invertir(){
