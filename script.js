@@ -26,7 +26,7 @@ function actualizarTabla(informacion){
                         <td> ${(i + 1)}</td>
                         <td> <input type="text" id="alumno${i}" value="${vector[i]}" onchange="modificar(this,${i})"> </td> 
                         <td class="icono">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" onclick="(function() { calcularInfo(${i}); mostrarInfo(); })()">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" onclick="calcularYMostrarInfo(${i})">
                                 <path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11 11V17H13V11H11ZM11 7V9H13V7H11Z"></path>
                             </svg>
                         <td class="icono">
@@ -50,6 +50,7 @@ function actualizarTabla(informacion){
 function eliminarAlumno(posicion){
     vector.splice(posicion,1);
     actualizarTabla();
+    info()
 }
 
 function modificar(nombre,posicion){
@@ -104,9 +105,7 @@ function reemplazar(){
     }
     actualizarTabla()
 }
-
-
-function info(){
+function info(promedio,contadorCorto,contadorLargo){
     var vectorCaracteres=[]
     for(i=0;i<vector.length;i++){
         var separarCaracteres=vector[i].split("")
@@ -143,26 +142,21 @@ function info(){
             <td colspan="2"><strong>Nombre más corto:</strong> ${nombreCorto}</td>
         </tr>
     `
-
     actualizarTabla(informacion)
 }
 
-function calcularInfo(i){
+function calcularYMostrarInfo(i, promedio, nombreLargo, nombreCorto){
     var numeroVocales=0
     var separarCaracteres=vector[i].split("")
     var longitudNombre=separarCaracteres.length
     for(var j=0;j<separarCaracteres.length;j++){
-        if (separarCaracteres[j] == 'a' || separarCaracteres[j] == 'e' || separarCaracteres[j] == 'i' || separarCaracteres[j] == 'o' || separarCaracteres[j] == 'u') {
+        if (separarCaracteres[j] == "a" || separarCaracteres[j] == "e" || separarCaracteres[j] == "i" || separarCaracteres[j] == "o" || separarCaracteres[j] == "u") {
             numeroVocales+=1
         }
     }
-    mostrarInfo(numeroVocales,longitudNombre,i,promedio,nombreLargo,nombreCorto)
-}
 
-
-function mostrarInfo(numeroVocales,longitudNombre,i,promedio,nombreLargo,nombreCorto){
     var info=`
-        El nombre es ${i} <br>
+        El nombre es ${vector[i]} <br>
         Su longitud es ${longitudNombre} caracteres <br>     
         Su número de vocales es ${numeroVocales} <br>
     `
@@ -171,7 +165,7 @@ function mostrarInfo(numeroVocales,longitudNombre,i,promedio,nombreLargo,nombreC
         }else if(longitudNombre==promedio){
             info += "El nombre es igual al promedio <br>"
         }else{
-            info += "El nombre está por debajo del promedio <br>"
+            info += "El nombre está por encima del promedio <br>"
         }
         
         if (longitudNombre<=nombreCorto){
