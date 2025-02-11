@@ -2,6 +2,7 @@ var texto="" // Variable para actualizar la tabla
 var vector=[] 
 var alumnos=[];
 var totalAlumnos=0;
+var indiceId=[]
 var botonInvertir=document.getElementById("botonInvertir");
 var divInfoNombre=document.getElementById("infoNombre");
 
@@ -58,7 +59,7 @@ function actualizarTabla(promedio, nombreLargo, nombreCorto){
         var fila= `
                     <tr>
                         <td> ${i + 1}</td>
-                        <!-- <td> <input type="text" id="alumno${i}" value="${vector[i]}" onchange="modificar(this,${i})"> </td> -->
+                        <td> <input type="text" id="alumno${i}" value="${vector[i]}" onchange="modificar(this,${i})"> </td>
                         <td>${vector[i]}</td>
                         <td class="icono">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" onclick="calcularYMostrarInfo(${i}, ${promedio}, ${nombreLargo}, ${nombreCorto})">
@@ -105,17 +106,21 @@ function buscar(){
         document.getElementById('alumno'+i).style.background="white"
         document.getElementById('alumno'+i).style.color="black"
         if(nombre==vector[i]){
+            indiceId.push(i)
             numVeces.push(`<tr><td>${i+1}</td><td id="salto${i}">${vector[i]}</tr></td>`)
             contador++;
-            document.getElementById('alumno'+i).style.background="rgb(19, 36, 73)"
+            document.getElementById('alumno'+i).style.background="rgb(49, 28, 49)"
             document.getElementById('alumno'+i).style.color="white"
             resultado.innerHTML=` ${nombre} aparece ${contador} veces <table>${numVeces.join('')}</table>`;
         }
+    
     }   
     document.getElementById("cajaBuscar").value=""
+    console.log(indiceId)
 }
 
 function saltar(){
+    
     
 }
 
