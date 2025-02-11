@@ -3,6 +3,7 @@ var vector=[]
 var alumnos=[];
 var indiceId=[]
 var totalAlumnos=0;
+var contadorID = 0;
 var botonInvertir=document.getElementById("botonInvertir");
 var divInfoNombre=document.getElementById("infoNombre");
 
