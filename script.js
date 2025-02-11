@@ -1,8 +1,9 @@
 var texto="" // Variable para actualizar la tabla
 var vector=[] 
 var alumnos=[];
-var totalAlumnos=0;
 var indiceId=[]
+var totalAlumnos=0;
+var contadorID = 0;
 var botonInvertir=document.getElementById("botonInvertir");
 var divInfoNombre=document.getElementById("infoNombre");
 
@@ -119,9 +120,18 @@ function buscar(){
     console.log(indiceId)
 }
 
-function saltar(){
-    
-    
+
+function saltar() {
+    for (let i = 0; i < indiceId.length; i++) { //Recorremos el vector con los numeros de las ID de las buquedas
+        document.getElementById('salto' + indiceId[i]).style.background='#bdb7f0' //Aqui ponemos de vueltas las celdas de color azul
+        document.getElementById('salto' + indiceId[i]).style.color='black';
+    }
+    if (contadorID >= indiceId.length) {
+        contadorID = 0; //Aqui le decimos que si el contador es mayor que la longitud del vector, que se reinicie.
+    }
+    document.getElementById('salto' + indiceId[contadorID]).style.background='rgb(49, 28, 49)'; //Aqui le decimos que, indiceId (la posicion del vector la marca el contador) lo ponga de rojo.
+    document.getElementById('salto' + indiceId[contadorID]).style.color='white';
+    contadorID++; //Incrementamos el contador para poder seguir buscandos IDs
 }
 
 function invertir(){
