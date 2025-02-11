@@ -3,7 +3,6 @@ var vector=[]
 var alumnos=[];
 var indiceId=[]
 var totalAlumnos=0;
-var contadorID = 0;
 var botonInvertir=document.getElementById("botonInvertir");
 var divInfoNombre=document.getElementById("infoNombre");
 
@@ -60,8 +59,8 @@ function actualizarTabla(promedio, nombreLargo, nombreCorto){
         var fila= `
                     <tr>
                         <td> ${i + 1}</td>
-                        <td> <input type="text" id="alumno${i}" value="${vector[i]}" onchange="modificar(this,${i})"> </td>
-                        <td>${vector[i]}</td>
+                        <!-- Esto tiene que ir comentado, es lo que Juanma me hizo cambiar <td> <input type="text" id="alumno${i}" value="${vector[i]}" onchange="modificar(this,${i})"> </td> -->
+                        <td id="alumno${i}">${vector[i]}</td>
                         <td class="icono">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" onclick="calcularYMostrarInfo(${i}, ${promedio}, ${nombreLargo}, ${nombreCorto})">
                                 <path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11 11V17H13V11H11ZM11 7V9H13V7H11Z"></path>
@@ -103,35 +102,24 @@ function buscar(){
     var contador=0;
     var numVeces=[];
     resultado.innerHTML="";
+
     for(i=0;i<vector.length;i++){
-        document.getElementById('alumno'+i).style.background="white"
-        document.getElementById('alumno'+i).style.color="black"
         if(nombre==vector[i]){
-            indiceId.push(i)
-            numVeces.push(`<tr><td>${i+1}</td><td id="salto${i}">${vector[i]}</tr></td>`)
+            if(i==0){
+                numVeces.push(`<tr><td>${i+1}</td><td id="salto${i}" style="background:rgb(49, 28, 49); color:white">${vector[i]}</td></tr>`)
+            }else{
+                numVeces.push(`<tr><td>${i+1}</td><td id="salto${i}">${vector[i]}</td></tr>`)
+            }
             contador++;
-            document.getElementById('alumno'+i).style.background="rgb(49, 28, 49)"
-            document.getElementById('alumno'+i).style.color="white"
-            resultado.innerHTML=` ${nombre} aparece ${contador} veces <table>${numVeces.join('')}</table>`;
-        }
-    
+        }        
     }   
+    resultado.innerHTML=` ${nombre} aparece ${contador} veces <table>${numVeces.join('')}</table>`
     document.getElementById("cajaBuscar").value=""
-    console.log(indiceId)
 }
 
-
-function saltar() {
-    for (let i = 0; i < indiceId.length; i++) { //Recorremos el vector con los numeros de las ID de las buquedas
-        document.getElementById('salto' + indiceId[i]).style.background='#bdb7f0' //Aqui ponemos de vueltas las celdas de color azul
-        document.getElementById('salto' + indiceId[i]).style.color='black';
-    }
-    if (contadorID >= indiceId.length) {
-        contadorID = 0; //Aqui le decimos que si el contador es mayor que la longitud del vector, que se reinicie.
-    }
-    document.getElementById('salto' + indiceId[contadorID]).style.background='rgb(49, 28, 49)'; //Aqui le decimos que, indiceId (la posicion del vector la marca el contador) lo ponga de rojo.
-    document.getElementById('salto' + indiceId[contadorID]).style.color='white';
-    contadorID++; //Incrementamos el contador para poder seguir buscandos IDs
+function saltar(){
+    
+    
 }
 
 function invertir(){
@@ -145,16 +133,19 @@ function invertir(){
 }
 
 // Función que reemplaza los nombres de la tabla por el que el usuario indique
-function reemplazarTodos(){
+function reemplazar(cantidad){
     var nombre=document.getElementById("cajaBuscar").value
     var reemplazar=document.getElementById("nuevoNombre").value
-    
-    for(i=0;i<vector.length;i++){
-        if(vector[i] == nombre){
-            vector[i]=reemplazar
+    if(cantidad=="todos"){
+        for(i=0;i<vector.length;i++){
+            if(vector[i] == nombre){
+                vector[i]=reemplazar
+            }
         }
+    }else{
+        
     }
-    actualizarTabla()
+    info()
 }
 
 

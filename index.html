@@ -10,7 +10,7 @@
     <header>
         
         <div class="contenedor">
-            <input id="cajaNombre" type="text" placeholder="Introduzca su nombre" class="cajaTexto">
+            <input id="cajaNombre" type="text" class="boton" placeholder="Introduzca su nombre" class="cajaTexto">
 
             <div class="iconoGuardar" onclick="guardar()">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
@@ -58,19 +58,20 @@
             <div  id="busqueda" class="busqueda">      <!-- por defecto tiene un display:none -->
                 <div class="divReemplazar">
                     <input type="text" placeholder="Nuevo nombre" class="boton" id="nuevoNombre">
-                    <input type="button" value="Reemplazar" class="boton" onclick="modificar()">
-                    <input type="button" value="Reemplazar todos" class="boton" onclick="reemplazarTodos()">
+                    <input type="button" value="Reemplazar" class="boton" onclick="reemplazar('uno')">
+                    <input type="button" value="Reemplazar todos" class="boton" onclick="reemplazar('todos')">
                     <input type="button" value="Saltar" onclick="saltar()" class="boton">
                 </div>
                 <div class="divResultado" id="divResultado">
                     
                 </div>
-                
-                <div id="infoNombre">
+            </div>
+            <div id="infoNombre">
                     
-                </div>
-            </aside>
-        </main>
-        <script src="script.js"></script>
+            </div>
+        </aside>
+    </main>
+
+    <script src="script.js"></script>
     </body>
 </html>
