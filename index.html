@@ -12,9 +12,11 @@
         <div class="contenedor">
             <input id="cajaNombre" type="text" placeholder="Introduzca su nombre" class="cajaTexto">
 
-            <span class="icono" onclick="guardar()">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11 11H7V13H11V17H13V13H17V11H13V7H11V11Z"></path></svg>
-            </span>
+            <div class="iconoGuardar" onclick="guardar()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M11 11V5H13V11H19V13H13V19H11V13H5V11H11Z"></path>
+                </svg>
+            </div>
 
             <input type="button" class="boton" id="botonInvertir" value="Invertir" onclick="invertir()">
 
@@ -32,14 +34,14 @@
     </header>
     <main>
         <section>
-            <table id="tabla" border="1">
-                <thead border="1">
+            <table id="tabla" >
+                <thead>
                     <td>Número</td>
                     <td>Alumno</td>
                     <td>Info</td>
                     <td>Eliminar</td>
                 </thead>
-                <tbody id="actualizarAlumnos" border="1">
+                <tbody id="actualizarAlumnos">
 
                 </tbody>
                 <thead>

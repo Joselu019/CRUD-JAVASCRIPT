@@ -100,7 +100,7 @@ function buscar(){
     var resultado=document.getElementById('divResultado');
     var contador=0;
     var numVeces=[];
-    resultado.innerHTML=" ";
+    resultado.innerHTML="";
     for(i=0;i<vector.length;i++){
         document.getElementById('alumno'+i).style.background="white"
         document.getElementById('alumno'+i).style.color="black"
@@ -126,7 +126,7 @@ function invertir(){
         let nombreInvertido=vector[i].split("").reverse().join("");  //separo el elemento del vector por caracteres, les doy la vuelta, los vuelto a unir y los guardo en una variable
         vector.splice(i,1, nombreInvertido);                         //modifico esa posicion del vector y la sustituyo por la nueva
     }
-    actualizarTabla();
+    info();
 }
 
 // Función que reemplaza los nombres de la tabla por el que el usuario indique

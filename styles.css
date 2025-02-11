@@ -5,9 +5,8 @@ header{
     display: flex;
     align-items: center;
     border-radius: 40px 40px 0px 0px;
-    padding: 35px;
-    background-color: lightblue;
-
+    padding: 35px 50px;
+    background-color: #bdb7f0;
 }
 
 main{
@@ -16,7 +15,7 @@ main{
     width: 100%;
     min-height: 85vh;
     display: flex;
-    background-color: lightblue;
+    background-color:#bdb7f0;
 }
 
 section{
@@ -25,6 +24,9 @@ section{
     height: 100%;
     width: 60%;
     min-height: 85vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 aside{
@@ -33,17 +35,70 @@ aside{
     height: 100%;
     width: 40%;
     min-height: 85vh;
+
 }
 
-.icono{
-    background: white;
+table, td{
+    border: 1px solid rgb(72, 46, 176);
+    border-radius: 5px;
+    text-align: center;
+    padding: 5px;
+
 }
 
-.icono svg{
-    color: rgb(8, 137, 180);
-    width: 25px;
+.icono{ 
+    background: #bdb7f0;
+    text-align: center;
+}
+
+.icono svg{                        /* El svg del icono alumno */
+    color: rgb(72, 46, 176);
+    /* width: 25px; */
     height: 25px;
     cursor: pointer;
+}
+
+.iconoGuardar{
+    box-sizing: border-box;
+    border-radius: 100%;
+    background-color:rgb(54, 65, 90);
+    color: white;
+    width: 28px;
+    height: 28px;
+    border-radius: 100%;
+    border-style: outset;
+    border-color: rgb(54, 65, 90);
+    cursor: pointer;
+}
+
+.iconoBuscar{
+    box-sizing: border-box;
+    position: absolute;
+    top: 0;
+    right: -2px;
+    width: 28px;
+    height: 28px;
+    background: rgb(54, 65, 90);
+    border-style: outset;
+    border-color: rgb(54, 65, 90);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.iconoBuscar svg{
+    height: 17px;
+    color: white;
+    transition: all 0.7 ease;
+}
+
+.boton{
+    background-color: rgb(54, 65, 90);
+    color:white;
+    border-radius: 5px;
 }
 
 .busqueda{
@@ -60,7 +115,14 @@ aside{
 
 .buscador{
     /* border: 1px solid green; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     position: relative;
+}
+
+.buscador:hover .cajaBuscar{
+    width: 150px;
 }
 
 .cajaBuscar{
@@ -72,38 +134,8 @@ aside{
     padding: 0 10px;
     color: #000;
     border-radius: 50px;
-    border: 1px solid rgb(39, 166, 208);   /* He usado este azul, si no os gusta lo cambiamos*/
+    border: 1px solid #482EB0;
     transition: all 0.7s ease;
 }
 
-.iconoBuscar{
-    position: absolute;
-    top: -3px;
-    right: 0;
-    width: 30px;
-    height: 30px;
-    background: rgb(39, 166, 208);
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    cursor: pointer;
-    transition: 0.5s;
-}
 
-.iconoBuscar svg{
-    height: 18px;
-    color: white;
-    transition: all 0.7 ease;
-}
-
-.buscador:hover .cajaBuscar{
-    width: 150px;
-}
-
-.boton{
-    background-color: rgb(54, 65, 90);
-    color:white;
-    border-radius: 5px;
-    
-}
