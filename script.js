@@ -59,7 +59,7 @@ function actualizarTabla(promedio, nombreLargo, nombreCorto){
         var fila= `
                     <tr>
                         <td> ${i + 1}</td>
-                        <td> <input type="text" id="alumno${i}" value="${vector[i]}" onchange="modificar(this,${i})"> </td>
+                        <!-- Esto tiene que ir comentado, es lo que Juanma me hizo cambiar <td> <input type="text" id="alumno${i}" value="${vector[i]}" onchange="modificar(this,${i})"> </td> -->
                         <td>${vector[i]}</td>
                         <td class="icono">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" onclick="calcularYMostrarInfo(${i}, ${promedio}, ${nombreLargo}, ${nombreCorto})">
@@ -135,16 +135,19 @@ function invertir(){
 }
 
 // Función que reemplaza los nombres de la tabla por el que el usuario indique
-function reemplazarTodos(){
+function reemplazar(cantidad){
     var nombre=document.getElementById("cajaBuscar").value
     var reemplazar=document.getElementById("nuevoNombre").value
-    
-    for(i=0;i<vector.length;i++){
-        if(vector[i] == nombre){
-            vector[i]=reemplazar
+    if(cantidad=="todos"){
+        for(i=0;i<vector.length;i++){
+            if(vector[i] == nombre){
+                vector[i]=reemplazar
+            }
         }
+    }else{
+        
     }
-    actualizarTabla()
+    info()
 }
 
 
