@@ -116,7 +116,7 @@ function buscar(){
 }
 
 function saltar(){
-    alert('Hola')
+    
 }
 
 function invertir(){
