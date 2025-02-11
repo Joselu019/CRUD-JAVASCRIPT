@@ -3,9 +3,11 @@ var vector=[]
 var alumnos=[];
 var totalAlumnos=0;
 var botonInvertir=document.getElementById("botonInvertir");
+var divInfoNombre=document.getElementById("infoNombre");
 
 function guardar(){
     var nombre=document.getElementById("cajaNombre").value
+    //no funciona correctamente
     if(nombre==""){       
         document.getElementById('divResultado').innerHTML="Por favor introduzca un nombre";//lo he añadido al div busqueda por si no introducen un nombre que les salga ese mensaje.    
     }
@@ -47,15 +49,19 @@ function actualizarTabla(promedio, nombreLargo, nombreCorto){
     texto=""
     if(vector.length==0){
         totalAlumnos=0;
+        promedio=0;
+        nombreLargo=0;
+        nombreCorto=0;
     }
     for (var i=0;i<vector.length;i++){
         totalAlumnos=(i+1);
         var fila= `
                     <tr>
                         <td> ${i + 1}</td>
-                        <td> <input type="text" id="alumno${i}" value="${vector[i]}" onchange="modificar(this,${i})"> </td> 
+                        <!-- <td> <input type="text" id="alumno${i}" value="${vector[i]}" onchange="modificar(this,${i})"> </td> -->
+                        <td>${vector[i]}</td>
                         <td class="icono">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" onclick="calcularYMostrarInfo(${i})">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" onclick="calcularYMostrarInfo(${i}, ${promedio}, ${nombreLargo}, ${nombreCorto})">
                                 <path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11 11V17H13V11H11ZM11 7V9H13V7H11Z"></path>
                             </svg>
                         <td class="icono">
@@ -79,15 +85,15 @@ function actualizarTabla(promedio, nombreLargo, nombreCorto){
 
 function eliminarAlumno(posicion){
     vector.splice(posicion,1);
-    actualizarTabla();
-    info()
+    divInfoNombre.innerHTML="";
+    info();
 }
 
-function modificar(nombre,posicion){
-    let nuevoNombre=nombre.value
-    vector.splice(posicion,1, nuevoNombre) //modifico 1 elemento segun su posicion y lo reemplazo por el nuevo nombre
-    actualizarTabla()
-}
+// function modificar(nombre,posicion){
+//     let nuevoNombre=nombre.value
+//     vector.splice(posicion,1, nuevoNombre) //modifico 1 elemento segun su posicion y lo reemplazo por el nuevo nombre
+//     actualizarTabla()
+// }
 
 function buscar(){
     var nombre=document.getElementById("cajaBuscar").value;
