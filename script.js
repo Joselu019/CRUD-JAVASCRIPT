@@ -105,7 +105,7 @@ function reemplazar(){
     }
     actualizarTabla()
 }
-function info(promedio,contadorCorto,contadorLargo){
+function info(promedio,nombreCorto,nombreLargo){
     var vectorCaracteres=[]
     for(i=0;i<vector.length;i++){
         var separarCaracteres=vector[i].split("")
