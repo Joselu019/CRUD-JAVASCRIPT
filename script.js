@@ -7,8 +7,8 @@ var botonInvertir=document.getElementById("botonInvertir");
 function guardar(){
     var nombre=document.getElementById("cajaNombre").value
     if(nombre==""){       
-        document.getElementById('busqueda').innerHTML="Por favor introduzca un nombre";//lo he añadido al div busqueda por si no introducen un nombre que les salga ese mensaje.
-        }
+        document.getElementById('divResultado').innerHTML="Por favor introduzca un nombre";//lo he añadido al div busqueda por si no introducen un nombre que les salga ese mensaje.    
+    }
     vector.push(nombre)
     document.getElementById("cajaNombre").value=""
     info()
@@ -55,7 +55,7 @@ function actualizarTabla(promedio, nombreLargo, nombreCorto){
                         <td> ${i + 1}</td>
                         <td> <input type="text" id="alumno${i}" value="${vector[i]}" onchange="modificar(this,${i})"> </td> 
                         <td class="icono">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" onclick="calcularInfo(${i})">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" onclick="calcularYMostrarInfo(${i})">
                                 <path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM11 11V17H13V11H11ZM11 7V9H13V7H11Z"></path>
                             </svg>
                         <td class="icono">
@@ -80,6 +80,7 @@ function actualizarTabla(promedio, nombreLargo, nombreCorto){
 function eliminarAlumno(posicion){
     vector.splice(posicion,1);
     actualizarTabla();
+    info()
 }
 
 function modificar(nombre,posicion){
@@ -92,18 +93,24 @@ function buscar(){
     var nombre=document.getElementById("cajaBuscar").value;
     var resultado=document.getElementById('divResultado');
     var contador=0;
+    var numVeces=[];
+    resultado.innerHTML=" ";
     for(i=0;i<vector.length;i++){
         document.getElementById('alumno'+i).style.background="white"
         document.getElementById('alumno'+i).style.color="black"
         if(nombre==vector[i]){
+            numVeces.push(`<tr><td>${i+1}</td><td id="salto${i}">${vector[i]}</tr></td>`)
             contador++;
             document.getElementById('alumno'+i).style.background="rgb(19, 36, 73)"
             document.getElementById('alumno'+i).style.color="white"
-            resultado.style.display="inline";
-            resultado.innerHTML=` ${nombre} aparece ${contador} veces`;            
+            resultado.innerHTML=` ${nombre} aparece ${contador} veces <table>${numVeces.join('')}</table>`;
         }
     }   
     document.getElementById("cajaBuscar").value=""
+}
+
+function saltar(){
+    alert('Hola')
 }
 
 function invertir(){
@@ -130,22 +137,18 @@ function reemplazarTodos(){
 }
 
 
-function calcularInfo(i){
+function calcularYMostrarInfo(i, promedio, nombreLargo, nombreCorto){
     var numeroVocales=0
     var separarCaracteres=vector[i].split("")
     var longitudNombre=separarCaracteres.length
     for(var j=0;j<separarCaracteres.length;j++){
-        if (separarCaracteres[j] == 'a' || separarCaracteres[j] == 'e' || separarCaracteres[j] == 'i' || separarCaracteres[j] == 'o' || separarCaracteres[j] == 'u') {
+        if (separarCaracteres[j] == "a" || separarCaracteres[j] == "e" || separarCaracteres[j] == "i" || separarCaracteres[j] == "o" || separarCaracteres[j] == "u") {
             numeroVocales+=1
         }
     }
-    mostrarInfo(numeroVocales,longitudNombre,i,promedio,nombreLargo,nombreCorto)
-}
 
-
-function mostrarInfo(numeroVocales,longitudNombre,i,promedio,nombreLargo,nombreCorto){
     var info=`
-        El nombre es ${i} <br>
+        El nombre es ${vector[i]} <br>
         Su longitud es ${longitudNombre} caracteres <br>     
         Su número de vocales es ${numeroVocales} <br>
     `
@@ -154,7 +157,7 @@ function mostrarInfo(numeroVocales,longitudNombre,i,promedio,nombreLargo,nombreC
         }else if(longitudNombre==promedio){
             info += "El nombre es igual al promedio <br>"
         }else{
-            info += "El nombre está por debajo del promedio <br>"
+            info += "El nombre está por encima del promedio <br>"
         }
         
         if (longitudNombre<=nombreCorto){
