@@ -1,7 +1,9 @@
 var texto="" // Variable para actualizar la tabla
 var vector=[] 
 var alumnos=[];
+var indiceId=[]
 var totalAlumnos=0;
+var contadorID = 0;
 var botonInvertir=document.getElementById("botonInvertir");
 var divInfoNombre=document.getElementById("infoNombre");
 
@@ -102,9 +104,13 @@ function buscar(){
     var resultado=document.getElementById('divResultado');
     var contador=0;
     var numVeces=[];
+    indiceId=[];
     resultado.innerHTML="";
 
     for(i=0;i<vector.length;i++){
+        if (nombre == vector[i]) {
+            indiceId.push(i);  // Guardamos el índice del nombre encontrado
+
         if(nombre==vector[i]){
             if(i==0){
                 numVeces.push(`<tr><td>${i+1}</td><td id="salto${i}" style="background:rgb(49, 28, 49); color:white">${vector[i]}</td></tr>`)
@@ -116,12 +122,24 @@ function buscar(){
     }   
     resultado.innerHTML=` ${nombre} aparece ${contador} veces <table>${numVeces.join('')}</table>`
     document.getElementById("cajaBuscar").value=""
+} 
+
 }
 
-// function saltar(){
-    
-    
-// }
+function saltar(){
+
+    for ( i = 0; i < indiceId.length; i++) { //Recorremos el vector con los numeros de las ID de las buquedas
+        document.getElementById('salto' + indiceId[i]).style.background='#bdb7f0' //Aqui ponemos vueltas las celdas de color
+        document.getElementById('salto' + indiceId[i]).style.color='black';
+    }
+    if (contadorID >= indiceId.length) {
+        contadorID = 0; //Aqui le decimos que si el contador es mayor que la longitud del vector, que se reinicie.
+    }
+    document.getElementById('salto' + indiceId[contadorID]).style.background="rgb(49, 28, 49)"; //Aqui le decimos que, indiceId (la posicion del vector la marca el contador)
+    document.getElementById('salto' + indiceId[contadorID]).style.color='white';
+    contadorID++; //Incrementamos el contador para poder seguir buscandos IDs
+}
+
 
 function invertir(){
     var invertido=botonInvertir.value.split("").reverse().join("");
