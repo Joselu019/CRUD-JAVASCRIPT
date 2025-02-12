@@ -144,16 +144,24 @@ thead{
 }
 
 .cajaBuscar{
-    outline: none;
+    /* outline: none; */
     box-sizing: border-box;
     margin-left: 10px;
     height: 25px;
     width: 0;
+    background-color: rgba(54, 65, 90, 0.673);
     padding: 0 10px;
     color: #000;
-    border-radius: 50px;
-    border: 1px solid #482EB0;
+    border-radius: 8px;
+    /* border: 1px solid #482EB0; */
     transition: all 0.7s ease;
+}
+
+.cajaNombre{
+    background-color: rgb(54, 65, 90);
+    height: 22px;
+    border-radius: 8px;
+    padding: 0;
 }
 
 

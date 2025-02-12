@@ -123,7 +123,6 @@ function buscar(){
     resultado.innerHTML=` ${nombre} aparece ${contador} veces <table>${numVeces.join('')}</table>`
     document.getElementById("cajaBuscar").value=""
 } 
-
 }
 
 function saltar(){
@@ -163,6 +162,7 @@ function reemplazar(cantidad){
         }
     }else{
         for (let i = 0; i < numVeces.length; i++){
+
         }
     }
     info()
