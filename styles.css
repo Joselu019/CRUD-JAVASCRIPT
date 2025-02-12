@@ -108,6 +108,7 @@ thead{
     height: 17px;
     color: white;
     transition: all 0.7 ease;
+    cursor: pointer;
     
 }
 
@@ -117,6 +118,7 @@ thead{
     margin-left: 4px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+    cursor: pointer;
 }
 
 .busqueda{
