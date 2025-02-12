@@ -11,7 +11,7 @@ var resultado = document.getElementById('divResultado');
 var divBusqueda=document.getElementById("busqueda");
 var cajaNuevoNombre=document.getElementById("nuevoNombre");
 var cajaBuscar=document.getElementById("cajaBuscar");
-
+var tabla=document.getElementById("tabla")
 
 
 function guardar(){
@@ -23,6 +23,7 @@ function guardar(){
         return;   
     }
     vector.push(nombre)
+    tabla.style.display="block"
     document.getElementById("cajaNombre").value=""
     divInfoNombre.innerHTML="";
     info()
@@ -135,7 +136,6 @@ function buscar(){
     }
     divInfoNombre.innerHTML="";
 }
-
 
 
 function saltar() {
