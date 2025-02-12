@@ -100,6 +100,10 @@ function eliminarAlumno(posicion){
     vector.splice(posicion,1);
     divInfoNombre.innerHTML="";
     info();
+
+    if (vector.length==0){
+        tabla.style.display="none"
+    }
 }
 
 // function modificar(nombre,posicion){
