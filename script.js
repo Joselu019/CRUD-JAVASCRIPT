@@ -26,6 +26,8 @@ function guardar(){
     tabla.style.display="block"
     document.getElementById("cajaNombre").value=""
     divInfoNombre.innerHTML="";
+    divBusqueda.style.display="none"
+    cajaBuscar.value=""
     info()
 }
 
