@@ -105,24 +105,24 @@ function buscar(){
     var resultado=document.getElementById('divResultado');
     var contador=0;
     var numVeces=[];
-    indiceId=[];
+    // indiceId=[];
     resultado.innerHTML="";
 
     for(i=0;i<vector.length;i++){
         if (nombre == vector[i]) {
-            indiceId.push(i);  // Guardamos el índice del nombre encontrado
-
-            if(i==0){
-                numVeces.push(`<tr><td>${i+1}</td><td id="salto${i}" style="background:rgb(49, 28, 49); color:white">${vector[i]}</td></tr>`)
+            // indiceId.push(i);  // Guardamos el índice del nombre encontrado
+            if(numVeces.length==0){
+                numVeces.push(`<tr><td>${i+1}</td><td id="salto${i+1}" style="background:rgb(49, 28, 49); color:white">${vector[i]}</td></tr>`)
             }else{
-                numVeces.push(`<tr><td>${i+1}</td><td id="salto${i}">${vector[i]}</td></tr>`)
+                numVeces.push(`<tr><td>${i+1}</td><td id="salto${i+1}">${vector[i]}</td></tr>`)
             }
             contador++;        
-    }   
+    }  
     resultado.innerHTML=` ${nombre} aparece ${contador} veces <table>${numVeces.join('')}</table>`
     document.getElementById("cajaBuscar").value=""
     } 
 }
+
 
 function saltar(){
 
