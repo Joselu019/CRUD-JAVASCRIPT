@@ -4,10 +4,12 @@ var indiceId=[];
 var numVeces = [];
 var totalAlumnos=0;
 var contadorID = 0;
+var nuevoNombre="";
 var botonInvertir=document.getElementById("botonInvertir");
 var divInfoNombre=document.getElementById("infoNombre");
 var resultado = document.getElementById('divResultado');
 var divBusqueda=document.getElementById("busqueda");
+var cajaNuevoNombre=document.getElementById("nuevoNombre");
 
 
 
@@ -155,32 +157,34 @@ function invertir(){
     botonInvertir.value=invertido
     for (let i = 0; i < vector.length; i++) {
         let nombreInvertido=vector[i].split("").reverse().join("");  //separo el elemento del vector por caracteres, les doy la vuelta, los vuelto a unir y los guardo en una variable
-        vector.splice(i,1, nombreInvertido);                         //modifico esa posicion del vector y la sustituyo por la nueva
+        vector.splice(i, 1, nombreInvertido);                         //modifico esa posicion del vector y la sustituyo por la nueva
     }
     info();
 }
 
 // Función que reemplaza los nombres de la tabla por el que el usuario indique
-function reemplazar(cantidad){
-    var nombre=document.getElementById("cajaBuscar").value
-    var reemplazar=document.getElementById("nuevoNombre").value
-    if(cantidad=="todos"){
-        for(let i=0;i<vector.length;i++){
-            if(vector[i] == nombre){
-                vector[i]=reemplazar
-            }
-        }
-    }else{
-        let posicion=indiceId[contadorID]
-        console.log(posicion)
-        if(contadorID>0){
-                    vector.splice(posicion-1,1, reemplazar)
-        }else{
-            vector.splice(posicion, 1, reemplazar)
-        }
-            }
+function reemplazar(){
+    nuevoNombre=cajaNuevoNombre.value
+    let posicionTabla = indiceId[contadorID - 1];
+    vector[posicionTabla] = nuevoNombre;
     info()
     resultado.innerHTML = "";
+    cajaNuevoNombre.value="";
+    contadorID=0;
+    divBusqueda.style.display="none";
+}
+
+function reemplazarTodos(){
+    let nombre=document.getElementById("cajaBuscar").value
+    nuevoNombre=cajaNuevoNombre.value
+    for(let i=0;i<vector.length;i++){
+        if(vector[i]==nombre){
+            vector[i]=nuevoNombre
+        }
+    }
+    info()
+    resultado.innerHTML = "";
+    cajaNuevoNombre.value="";
     divBusqueda.style.display="none";
 }
 
