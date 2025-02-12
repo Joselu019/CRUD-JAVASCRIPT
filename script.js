@@ -10,11 +10,12 @@ var divInfoNombre=document.getElementById("infoNombre");
 var resultado = document.getElementById('divResultado');
 var divBusqueda=document.getElementById("busqueda");
 var cajaNuevoNombre=document.getElementById("nuevoNombre");
+var cajaBuscar=document.getElementById("cajaBuscar");
 
 
 
 function guardar(){
-    var nombre=document.getElementById("cajaNombre").value
+    let nombre=document.getElementById("cajaNombre").value
     //no funciona correctamente
     if(nombre=="" || !isNaN(nombre)){ 
         alert("Por favor introduzca un nombre")      
@@ -106,7 +107,7 @@ function eliminarAlumno(posicion){
 // }
 
 function buscar(){
-    var nombre = document.getElementById("cajaBuscar").value;
+    let nombre = document.getElementById("cajaBuscar").value;
     var contador = 0;
     indiceId = [];
     numVeces = [];
@@ -131,8 +132,6 @@ function buscar(){
     } else {
         resultado.innerHTML = `No se encontraron coincidencias para "${nombre}".`;
     }
-
-    document.getElementById("cajaBuscar").value = ""; // Limpia la caja de búsqueda
 }
 
 
@@ -172,13 +171,17 @@ function reemplazar(){
     cajaNuevoNombre.value="";
     contadorID=0;
     divBusqueda.style.display="none";
+    document.getElementById("cajaBuscar").value=""
 }
 
 function reemplazarTodos(){
-    let nombre=document.getElementById("cajaBuscar").value
+    let nombre=cajaBuscar.value
     nuevoNombre=cajaNuevoNombre.value
+    console.log(nombre)
+    console.log(nuevoNombre)
     for(let i=0;i<vector.length;i++){
         if(vector[i]==nombre){
+            console.log("hola")
             vector[i]=nuevoNombre
         }
     }
@@ -186,6 +189,7 @@ function reemplazarTodos(){
     resultado.innerHTML = "";
     cajaNuevoNombre.value="";
     divBusqueda.style.display="none";
+    document.getElementById("cajaBuscar").value=""
 }
 
 
