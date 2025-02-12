@@ -2,7 +2,6 @@ var texto="" // Variable para actualizar la tabla
 var vector=[] 
 var alumnos=[];
 var indiceId=[]
-var indiceId=[]
 var totalAlumnos=0;
 var contadorID = 0;
 var botonInvertir=document.getElementById("botonInvertir");
@@ -101,41 +100,53 @@ function eliminarAlumno(posicion){
 // }
 
 function buscar(){
-    var nombre=document.getElementById("cajaBuscar").value;
-    var resultado=document.getElementById('divResultado');
-    var contador=0;
-    var numVeces=[];
-    // indiceId=[];
-    resultado.innerHTML="";
+    var nombre = document.getElementById("cajaBuscar").value;
+    var resultado = document.getElementById('divResultado');
+    var contador = 0;
+    var numVeces = [];
+    indiceId = [];
+    resultado.innerHTML = "";
 
-    for(i=0;i<vector.length;i++){
+    for (let i = 0; i < vector.length; i++) {
         if (nombre == vector[i]) {
-            // indiceId.push(i);  // Guardamos el índice del nombre encontrado
-            if(numVeces.length==0){
-                numVeces.push(`<tr><td>${i+1}</td><td id="salto${i+1}" style="background:rgb(49, 28, 49); color:white">${vector[i]}</td></tr>`)
-            }else{
-                numVeces.push(`<tr><td>${i+1}</td><td id="salto${i+1}">${vector[i]}</td></tr>`)
-            }
-            contador++;        
-    }  
-    resultado.innerHTML=` ${nombre} aparece ${contador} veces <table>${numVeces.join('')}</table>`
-    document.getElementById("cajaBuscar").value=""
-    } 
+            indiceId.push(i);  // Guardamos el índice del nombre encontrado
+            numVeces.push(`<tr><td>${i + 1}</td><td id="salto${i}">${vector[i]}</td></tr>`);
+            contador++;
+        }
+    }
+
+    if (contador > 0) {
+        // Muestra el número de veces que se encontró el nombre y las coincidencias
+        resultado.innerHTML = `${nombre} aparece ${contador} veces <table>${numVeces.join('')}</table>`;
+
+        // Resaltar el primer nombre encontrado
+        document.getElementById('salto' + indiceId[0]).style.background = "rgb(49, 28, 49)";
+        document.getElementById('salto' + indiceId[0]).style.color = 'white';
+        contadorID = 1; // Iniciamos el contador desde la segunda coincidencia
+    } else {
+        resultado.innerHTML = `No se encontraron coincidencias para "${nombre}".`;
+    }
+
+    document.getElementById("cajaBuscar").value = ""; // Limpia la caja de búsqueda
 }
 
 
-function saltar(){
 
-    for ( i = 0; i < indiceId.length; i++) { //Recorremos el vector con los numeros de las ID de las buquedas
-        document.getElementById('salto' + indiceId[i]).style.background='#bdb7f0' //Aqui ponemos vueltas las celdas de color
-        document.getElementById('salto' + indiceId[i]).style.color='black';
+function saltar() {
+    for (let i = 0; i < indiceId.length; i++) { // Recorre los índices de las coincidencias
+        document.getElementById('salto' + indiceId[i]).style.background = '#bdb7f0'; // Resalta en morado claro
+        document.getElementById('salto' + indiceId[i]).style.color = 'black'; // Cambia el color del texto a negro
     }
+
     if (contadorID >= indiceId.length) {
-        contadorID = 0; //Aqui le decimos que si el contador es mayor que la longitud del vector, que se reinicie.
+        contadorID = 0; // Reinicia el contador si llega al final del vector
     }
-    document.getElementById('salto' + indiceId[contadorID]).style.background="rgb(49, 28, 49)"; //Aqui le decimos que, indiceId (la posicion del vector la marca el contador)
-    document.getElementById('salto' + indiceId[contadorID]).style.color='white';
-    contadorID++; //Incrementamos el contador para poder seguir buscandos IDs
+
+    // Resalta la coincidencia actual en morado oscuro y blanco
+    document.getElementById('salto' + indiceId[contadorID]).style.background = "rgb(49, 28, 49)";
+    document.getElementById('salto' + indiceId[contadorID]).style.color = 'white';
+
+    contadorID++; // Incrementa el contador para la siguiente coincidencia
 }
 
 
