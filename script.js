@@ -8,8 +8,10 @@ var divInfoNombre=document.getElementById("infoNombre");
 function guardar(){
     var nombre=document.getElementById("cajaNombre").value
     //no funciona correctamente
-    if(nombre==""){       
-        document.getElementById('divResultado').innerHTML="Por favor introduzca un nombre";//lo he añadido al div busqueda por si no introducen un nombre que les salga ese mensaje.    
+    if(nombre=="" || !isNaN(nombre)){ 
+        alert("Por favor introduzca un nombre")      
+        document.getElementById("cajaNombre").value=""//lo he añadido al div busqueda por si no introducen un nombre que les salga ese mensaje. 
+        return;   
     }
     vector.push(nombre)
     document.getElementById("cajaNombre").value=""
@@ -142,7 +144,8 @@ function reemplazar(cantidad){
             }
         }
     }else{
-        
+        for (let i = 0; i < numVeces.length; i++){
+        }
     }
     info()
 }
