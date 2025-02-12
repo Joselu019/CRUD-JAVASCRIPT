@@ -2,6 +2,7 @@ var texto="" // Variable para actualizar la tabla
 var vector=[] 
 var alumnos=[];
 var indiceId=[]
+var indiceId=[]
 var totalAlumnos=0;
 var contadorID = 0;
 var botonInvertir=document.getElementById("botonInvertir");
@@ -111,18 +112,16 @@ function buscar(){
         if (nombre == vector[i]) {
             indiceId.push(i);  // Guardamos el índice del nombre encontrado
 
-        if(nombre==vector[i]){
             if(i==0){
                 numVeces.push(`<tr><td>${i+1}</td><td id="salto${i}" style="background:rgb(49, 28, 49); color:white">${vector[i]}</td></tr>`)
             }else{
                 numVeces.push(`<tr><td>${i+1}</td><td id="salto${i}">${vector[i]}</td></tr>`)
             }
-            contador++;
-        }        
+            contador++;        
     }   
     resultado.innerHTML=` ${nombre} aparece ${contador} veces <table>${numVeces.join('')}</table>`
     document.getElementById("cajaBuscar").value=""
-} 
+    } 
 }
 
 function saltar(){
