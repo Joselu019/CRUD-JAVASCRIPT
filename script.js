@@ -24,6 +24,7 @@ function guardar(){
     }
     vector.push(nombre)
     document.getElementById("cajaNombre").value=""
+    divInfoNombre.innerHTML="";
     info()
 }
 
@@ -132,6 +133,7 @@ function buscar(){
     } else {
         resultado.innerHTML = `No se encontraron coincidencias para "${nombre}".`;
     }
+    divInfoNombre.innerHTML="";
 }
 
 
@@ -158,6 +160,7 @@ function invertir(){
         let nombreInvertido=vector[i].split("").reverse().join("");  //separo el elemento del vector por caracteres, les doy la vuelta, los vuelto a unir y los guardo en una variable
         vector.splice(i, 1, nombreInvertido);                         //modifico esa posicion del vector y la sustituyo por la nueva
     }
+    divInfoNombre.innerHTML="";
     info();
 }
 
