@@ -2,6 +2,7 @@ var texto="" // Variable para actualizar la tabla
 var vector=[] 
 var alumnos=[];
 var indiceId=[]
+var indiceId=[]
 var totalAlumnos=0;
 var contadorID = 0;
 var botonInvertir=document.getElementById("botonInvertir");
@@ -10,8 +11,10 @@ var divInfoNombre=document.getElementById("infoNombre");
 function guardar(){
     var nombre=document.getElementById("cajaNombre").value
     //no funciona correctamente
-    if(nombre==""){       
-        document.getElementById('divResultado').innerHTML="Por favor introduzca un nombre";
+    if(nombre=="" || !isNaN(nombre)){ 
+        alert("Por favor introduzca un nombre")      
+        document.getElementById("cajaNombre").value=""//lo he añadido al div busqueda por si no introducen un nombre que les salga ese mensaje. 
+        return;   
     }
     vector.push(nombre)
     document.getElementById("cajaNombre").value=""
@@ -157,7 +160,8 @@ function reemplazar(cantidad){
             }
         }
     }else{
-        
+        for (let i = 0; i < numVeces.length; i++){
+        }
     }
     info()
 }
