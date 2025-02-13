@@ -1,7 +1,7 @@
 
 header{
     box-sizing: border-box;
-    border: 1px solid;
+    border: 2px solid rgb(72, 46, 176);
     height: 60px;
     display: flex;
     align-items: center;
@@ -12,7 +12,7 @@ header{
 
 main{
     box-sizing: border-box;
-    border: 1px solid red;
+    border: 1px solid rgb(72, 46, 176);
     width: 100%;
     min-height: 85vh;
     display: flex;
@@ -22,7 +22,7 @@ main{
 section{
     padding-top: 50px;
     box-sizing: border-box;
-    border: 1px solid green;
+    border: 1px solid rgb(72, 46, 176);
     height: 100%;
     width: 60%;
     min-height: 85vh;
@@ -34,7 +34,7 @@ section{
 aside{
     padding-top: 50px;
     box-sizing: border-box;
-    border: 1px solid blueviolet;
+    /* border: 1px solid rgb(72, 46, 176); */
     height: 100%;
     width: 40%;
     min-height: 85vh;
@@ -43,14 +43,17 @@ aside{
 
 table{
     border-radius: 8px;
-    background: rgb(72, 46, 176);
+    /* background: rgb(72, 46, 176); */
+    background-color: beige;
 }
 
 td{
     border-radius: 5px;
     text-align: center;
     padding: 10px;
-    background:#bdb7f0;
+    /* background:#bdb7f0; */
+    background-color: rgb(171, 150, 228);
+    
 }
 
 thead{
@@ -58,7 +61,7 @@ thead{
 }
 
 .icono{ 
-    background: #bdb7f0;
+    background: rgb(171, 150, 228);
     text-align: center;
 }
 
@@ -165,6 +168,18 @@ thead{
     border-radius: 8px;
     padding: 0 10px;
     color:white;
+}
+
+.infoNombre{
+    padding: 0 10px;
+    margin-bottom: 50px;
+    /* border:1px solid rgb(72, 46, 176); */
+    margin-left: 120px;
+    margin-top: 30px;
+}
+
+.divResultado{
+    gap: 0 10px;
 }
 
 

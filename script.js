@@ -106,6 +106,7 @@ function eliminarAlumno(posicion){
     if (vector.length==0){
         tabla.style.display="none"
     }
+    resultado.innerHTML = "";
 }
 
 // function modificar(nombre,posicion){
