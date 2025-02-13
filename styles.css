@@ -91,9 +91,9 @@ thead{
     box-sizing: border-box;
     position: absolute;
     top: 0;
-    right: -2px;
-    width: 28px;
-    height: 28px;
+    right: -3px;
+    width: 30px;
+    height: 30px;
     background: rgb(54, 65, 90);
     border-style: outset;
     border-color: rgb(54, 65, 90);
@@ -104,7 +104,6 @@ thead{
     cursor: pointer;
     transition: 0.5s;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
-
 }
 
 .iconoBuscar svg{
@@ -149,7 +148,6 @@ thead{
 }
 
 .cajaBuscar{
-    /* outline: none; */
     box-sizing: border-box;
     margin-left: 10px;
     height: 25px;
